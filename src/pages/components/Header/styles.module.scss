@@ -1,0 +1,43 @@
+.container{
+  display: flex;
+  justify-content: space-between;
+
+  .location{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    .locationPoint{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      border-radius: 5px;
+      padding: .4rem;
+      background-color:var(--purple-light) ;
+      color: var(--purple);
+    }
+    .shop{
+      background-color: var(--yellow-light);
+      color: var(--yellow);
+      padding: .4rem;
+      border-radius: 5px;
+      position: relative;
+      span{
+        display: flex;
+        width: 16px;
+        height: 16px;
+        justify-content: center;
+        align-items: center;
+        color: var(--white);
+        position: absolute;
+        background-color: var(--yellow-dark);
+        border-radius: 50%;
+        top: -10px;
+        right: 0px;
+        font-size: .8rem;
+        
+      }
+    }
+  }
+}

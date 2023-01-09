@@ -1,0 +1,75 @@
+.container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 8rem;
+  gap: 2rem;
+
+  .pitch{
+    h1 {
+      color:#272221;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    p{
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      color: #403937;
+    }
+
+    .benefitsContainer{
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 3rem;
+      
+     .benefitContainer{
+     
+      .benefit{
+        display: flex;
+        gap: 1rem;
+        .shopping{
+          border-radius: 50%;
+          background-color: var(--yellow-dark);
+          box-sizing: content-box;
+          padding: .3rem;
+          color: var(--white);
+        }
+        .timer{
+          border-radius: 50%;
+          background-color: var(--yellow);
+          box-sizing: content-box;
+          padding: .3rem;
+          color: var(--white);
+        }
+        .coffee{
+          border-radius: 50%;
+          background-color: var(--purple);
+          box-sizing: content-box;
+          padding: .3rem;
+          color: var(--white);
+        }
+        .package{
+          border-radius: 50%;
+          background-color: #574F4D;
+          box-sizing: content-box;
+          padding: .3rem;
+          color: var(--white);
+        }
+        p {
+          font-size: 1rem;
+          margin-bottom: 1rem;
+          color:#574F4D
+        }
+      }
+     }
+    }
+  }
+  .image{
+    width: 80%;
+    img{
+      width: 100%;
+      object-fit: contain;
+    }
+  }
+}

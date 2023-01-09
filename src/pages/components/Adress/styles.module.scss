@@ -1,0 +1,39 @@
+.container{
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+  width: 100%;
+  border: 1px solid var(--purple);
+  border-radius: 6px 36px 6px 36px;
+  .adress{
+    
+    .adressTitle{
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+
+      .image{
+        box-sizing: border-box;
+        padding: .3rem;
+        background-color: var(--purple);
+        border-radius: 50%;
+      }
+    }
+    .adressTitle:nth-child(2){
+      
+      .image{
+        background-color: var(--yellow);
+      }
+    }
+    .adressTitle:nth-child(3){
+      .image{
+        background-color: var(--yellow-dark);
+      }
+    }
+    .adressTitle + .adressTitle{
+      margin-top: 2rem;
+    }
+  }
+
+}

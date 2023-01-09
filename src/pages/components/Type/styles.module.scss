@@ -1,0 +1,15 @@
+.container{
+  display: flex;
+  
+  
+    p{
+      font-size: .8rem;
+      font-weight: 600;
+      color: var(--yellow);
+      margin: .5rem;
+      background-color: var(--yellow-light);
+      border-radius: 15px;
+      padding: 0.2rem;
+      text-transform: uppercase;
+    }
+}

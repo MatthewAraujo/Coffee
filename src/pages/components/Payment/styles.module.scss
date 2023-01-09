@@ -1,0 +1,166 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin-top: 2rem;
+  .content{
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    background-color: #F3F2F2;
+    border-radius: 10px;
+    width: 100%;
+    
+    .containerTitle{
+      .title{
+        display: flex;
+        align-items: center;
+        gap: .3rem;
+        .image{
+          color: var(--yellow);
+        }
+        .text{
+          h3{
+            color: #403937;
+          }
+          p{
+            color: #574F4D;
+          }
+        }
+        
+      }
+    }
+    .containerForm{
+      
+      margin-top: 1rem;
+
+      form{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        input{
+          padding: .5rem;
+          border: 1px solid #E6E5E5;
+          border-radius: 5px;
+          background-color: #EDEDED;
+          outline: none;
+        }
+        
+        input:first-child{
+          width: 35%;
+        }
+
+        .casa{
+          display: flex;
+          gap: .5rem;
+          input{
+            width: 100%;
+          }
+        }
+        .bairro{
+          display: flex;
+          gap: .5rem;
+          
+          input{
+            width: 100%;
+          }
+          input:last-child{
+            width: 20%;
+          }
+        }
+
+        }
+      }
+
+      
+  }
+  .pagamento{
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    background-color: #F3F2F2;
+    border-radius: 10px;
+    margin-top: 1rem;
+    gap: 2rem;
+    width: 100%;
+    .containerTitle{
+      .title{
+        display: flex;
+        align-items: center;
+        gap: .3rem;
+        .image{
+          color: var(--purple);
+        }
+        .text{
+          h3{
+            color: #403937;
+          }
+          p{
+            color: #574F4D;
+          }
+        }
+        
+      }
+    }
+  }
+  .containerEscolherCartao{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    button{
+      &:hover{
+        background-color:#D7D5D5;
+      }
+    }
+    
+    .containerCartoes{
+      display: flex;
+      gap: .3rem;
+      align-items: center;
+      padding: .5rem;
+      border: 1px solid #E6E5E5;
+      border-radius: 5px;
+      background-color: #EDEDED;
+      outline: none;
+      text-transform: uppercase;
+
+      width: 32%;     
+      p{
+        color: #574F4D;
+      }
+    
+      .image{
+        color: var(--purple);
+      }
+
+      &.containerCartoesActive{
+        display: flex;
+        gap: .3rem;
+        align-items: center;
+        border: 1px solid var(--purple);
+        padding: .5rem;
+        border-radius: 5px;
+        background-color: #EDEDED;
+        outline: none;
+        text-transform: uppercase;
+        width: 32%;
+
+      
+        p{
+          color: #574F4D;
+        }
+        .image{
+          color: var(--purple);
+        }
+          
+      }
+    }
+   
+   
+  }
+
+
+}

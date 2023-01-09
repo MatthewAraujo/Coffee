@@ -1,0 +1,96 @@
+.container{
+  display: flex;
+  width: 100%;
+  margin-bottom:1rem ;
+  .content{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+
+    .containerImage{
+      object-fit: cover;
+      width: 100%;
+      max-width: 100px;
+      }
+    .containerTitle{
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+
+      .title{
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: .5rem;
+      }
+      .button{
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        gap: 1rem;
+        
+
+
+        button{
+          border: none;
+          background-color: #E6E5E5;
+          color: #000;
+          font-size: 1.2rem;
+          cursor: pointer;
+          border-radius: 10px; 
+          color: var(--purple);
+          transition: filter .2s;
+
+          &:hover{
+            filter: brightness(.9);
+          }
+          
+        }
+        .addCoffee{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 1rem;
+          background-color: #E6E5E5;
+          box-sizing: border-box;
+          padding: .5rem;
+          border-radius: 10px;
+
+          span{
+            font-size: 1.2rem;
+            font-weight: 600;
+          }
+
+        }
+        
+        .removeCoffee{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 1rem;
+          background-color: #E6E5E5;
+          border-radius: 10px;
+          box-sizing: border-box;
+          padding: .5rem;
+          text-transform: uppercase;
+
+          .image{
+            
+            button{
+              display: flex;
+              align-items: center;
+              
+            }
+          }
+        }
+      }
+    }
+    .price{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+  }
+}
