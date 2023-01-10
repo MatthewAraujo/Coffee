@@ -4,7 +4,7 @@ import { useAddress } from '../../../hooks/useAddress'
 import styles from './styles.module.scss'
 
 export default function Payment() {
-  const { saveAddress, address } = useAddress()
+  const { saveAddress, address, saveCard } = useAddress()
   const [selected, setSelected] = useState('')
 
   function handleComplement(e: any) {
@@ -31,6 +31,7 @@ export default function Payment() {
   }
   function handleChooseCart(e: any) {
     setSelected(e.currentTarget.dataset.pagamento)
+    saveCard(e.currentTarget.dataset.pagamento)
   }
   return (
     <div>

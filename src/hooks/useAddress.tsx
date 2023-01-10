@@ -38,6 +38,7 @@ interface AddressDataProps {
   card: PaymentCard[]
   address: Address
   saveAddress: (data: Address) => void
+  saveCard: (data: PaymentCard[]) => void
 }
 
 const addressContext = createContext({} as AddressDataProps)
@@ -48,10 +49,13 @@ export const AddressProvider = ({ children }: AddressProviderProps) => {
   function saveAddress(data: Address) {
     setAddress(data)
   }
+  function saveCard(data: PaymentCard[]) {
+    setCard(data)
+  }
 
   console.table(address)
   return (
-    <addressContext.Provider value={{ card, saveAddress, address }}>
+    <addressContext.Provider value={{ card, saveAddress, address, saveCard }}>
       {children}
     </addressContext.Provider>
   )

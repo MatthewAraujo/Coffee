@@ -1,10 +1,10 @@
-import { CurrencyDollar, MapPin, Timer } from 'phosphor-react'
+import { Bank, CurrencyDollar, MapPin, Money, Timer } from 'phosphor-react'
 import { useAddress } from '../../../hooks/useAddress'
 import styles from './styles.module.scss'
 
 export default function Adress() {
-  const { address } = useAddress()
-
+  const { address, saveCard } = useAddress()
+  console.log(saveCard)
   return (
     <div className={styles.container}>
       <div className={styles.adress}>
@@ -20,7 +20,7 @@ export default function Adress() {
               </strong>
             </p>
             <p>
-              {address.city} - {address.state}, {address.district}
+              {address.city} - {address.district}, {address.state}
             </p>
           </div>
         </div>
@@ -34,6 +34,7 @@ export default function Adress() {
           </div>
         </div>
         <div className={styles.adressTitle}>
+          (saveCard === 'credito' ? (
           <div className={styles.image}>
             <CurrencyDollar size={22} />
           </div>
@@ -41,6 +42,23 @@ export default function Adress() {
             <p>Pagamento na entrega</p>
             <strong>Cartão de Crédito</strong>
           </div>
+          ): saveCard === 'debito'(
+          <div className={styles.image}>
+            <Bank size={22} />
+          </div>
+          <div className={styles.text}>
+            <p>Pagamento na entrega</p>
+            <strong>Cartão de debito</strong>
+          </div>
+          ): saveCard === 'dinheiro'(
+          <div className={styles.image}>
+            <Money size={22} />
+          </div>
+          <div className={styles.text}>
+            <p>Pagamento na entrega</p>
+            <strong>Cartão de Crédito</strong>
+          </div>
+          ): null )
         </div>
       </div>
     </div>
