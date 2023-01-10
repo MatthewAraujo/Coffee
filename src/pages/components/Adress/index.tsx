@@ -1,7 +1,10 @@
 import { CurrencyDollar, MapPin, Timer } from 'phosphor-react'
+import { useAddress } from '../../../hooks/useAddress'
 import styles from './styles.module.scss'
 
 export default function Adress() {
+  const { address } = useAddress()
+
   return (
     <div className={styles.container}>
       <div className={styles.adress}>
@@ -11,9 +14,14 @@ export default function Adress() {
           </div>
           <div className={styles.text}>
             <p>
-              Entrega em <strong>Rua Joao Daniel Martinelli, 102</strong>
+              Entrega em{' '}
+              <strong>
+                {address.street}, {address.number}
+              </strong>
             </p>
-            <p>Farrapos - Porto Alegre, RS</p>
+            <p>
+              {address.city} - {address.state}, {address.district}
+            </p>
           </div>
         </div>
         <div className={styles.adressTitle}>

@@ -155,12 +155,35 @@ interface LojaDataProps {
   coffee: Coffee[]
   carrinho: CarrinhoProduto[]
   adicionarCarrinho: (id: number, quantidade: number, price: number) => void
+  handleAddCoffee: (id: number) => void
+  handleRemoveCoffee: (id: number) => void
 }
 
 const lojaContext = createContext({} as LojaDataProps)
 
 export const LojaProvider = ({ children }: LojaProviderProps) => {
   const [carrinho, setCarrinho] = useState<CarrinhoProduto[]>([])
+
+  function handleAddCoffee(id: number) {
+    setCarrinho(
+      carrinho.map((i) =>
+        i.id === id ? { ...i, quantidade: i.quantidade + 1 } : i,
+      ),
+    )
+  }
+  function handleRemoveCoffee(id: number) {
+    const coffee = carrinho.find((i) => i.id === id)
+
+    if (coffee) {
+      if (coffee.quantidade > 0) {
+        setCarrinho(
+          carrinho.map((i) =>
+            i.id === id ? { ...i, quantidade: i.quantidade - 1 } : i,
+          ),
+        )
+      }
+    }
+  }
 
   function adicionarCarrinho(id: number, quantidade: number, price: number) {
     const produto = carrinho.find((i) => i.id === id)
@@ -188,6 +211,8 @@ export const LojaProvider = ({ children }: LojaProviderProps) => {
         coffee,
         carrinho,
         adicionarCarrinho,
+        handleAddCoffee,
+        handleRemoveCoffee,
       }}
     >
       {children}

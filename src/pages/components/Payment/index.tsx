@@ -1,36 +1,33 @@
 import { Bank, CurrencyDollar, MapPinLine, Money } from 'phosphor-react'
 import { useState } from 'react'
+import { useAddress } from '../../../hooks/useAddress'
 import styles from './styles.module.scss'
 
 export default function Payment() {
+  const { saveAddress, address } = useAddress()
   const [selected, setSelected] = useState('')
-  const [street, setStreet] = useState('')
-  const [numberAdress, setNumberAdress] = useState('')
-  const [district, setDistrict] = useState('')
-  const [city, setCity] = useState('')
-  const [state, setState] = useState('')
-  const [complement, setComplement] = useState('')
+
   function handleComplement(e: any) {
-    setComplement(e.target.value)
+    saveAddress({ ...address, complement: e.target.value })
   }
   function handleState(e: any) {
-    setState(e.target.value)
+    saveAddress({ ...address, state: e.target.value })
   }
 
   function handleCityName(e: any) {
-    setCity(e.target.value)
+    saveAddress({ ...address, city: e.target.value })
   }
 
   function handleDistrictName(e: any) {
-    setDistrict(e.target.value)
+    saveAddress({ ...address, district: e.target.value })
   }
 
   function handleNumberAdress(e: any) {
-    setNumberAdress(e.target.value)
+    saveAddress({ ...address, number: e.target.value })
   }
 
   function handleStreetName(e: any) {
-    setStreet(e.target.value)
+    saveAddress({ ...address, street: e.target.value })
   }
   function handleChooseCart(e: any) {
     setSelected(e.currentTarget.dataset.pagamento)
@@ -58,7 +55,7 @@ export default function Payment() {
                 type="text"
                 required
                 placeholder="Rua"
-                value={street}
+                value={address.street}
                 onChange={handleStreetName}
               />
               <div className={styles.casa}>
@@ -66,13 +63,13 @@ export default function Payment() {
                   type="text"
                   required
                   placeholder="Numero"
-                  value={numberAdress}
+                  value={address.number}
                   onChange={handleNumberAdress}
                 />
                 <input
                   type="text"
                   placeholder="Complemento "
-                  value={complement}
+                  value={address.complement}
                   onChange={handleComplement}
                 />
               </div>
@@ -81,21 +78,21 @@ export default function Payment() {
                   type="text"
                   required
                   placeholder="Bairro"
-                  value={district}
+                  value={address.district}
                   onChange={handleDistrictName}
                 />
                 <input
                   type="text"
                   required
                   placeholder="Cidade"
-                  value={city}
+                  value={address.city}
                   onChange={handleCityName}
                 />
                 <input
                   type="text"
                   required
                   placeholder="UF"
-                  value={state}
+                  value={address.state}
                   onChange={handleState}
                 />
               </div>

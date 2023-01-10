@@ -15,7 +15,7 @@ const card = [
   },
 ]
 
-interface AdressProviderProps {
+interface AddressProviderProps {
   children: ReactNode
 }
 
@@ -36,20 +36,22 @@ interface PaymentCard {
 
 interface AddressDataProps {
   card: PaymentCard[]
-  /* address: Address[] */
-  saveAdress: (data: Address) => void
+  address: Address
+  saveAddress: (data: Address) => void
 }
 
 const addressContext = createContext({} as AddressDataProps)
 
-export const AdressProvider = ({ children }: AdressProviderProps) => {
+export const AddressProvider = ({ children }: AddressProviderProps) => {
   const [address, setAddress] = useState<Address>({} as Address)
   const [card, setCard] = useState<PaymentCard[]>([])
-  function saveAdress(data: Address) {
+  function saveAddress(data: Address) {
     setAddress(data)
   }
+
+  console.table(address)
   return (
-    <addressContext.Provider value={{ card, saveAdress }}>
+    <addressContext.Provider value={{ card, saveAddress, address }}>
       {children}
     </addressContext.Provider>
   )

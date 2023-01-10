@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { Trash } from 'phosphor-react'
-import { useState } from 'react'
+import { useLoja } from '../../../hooks/useLoja'
 import styles from './styles.module.scss'
 
 interface HoverPaymentCoffeeProps {
@@ -8,22 +8,21 @@ interface HoverPaymentCoffeeProps {
   title: string
   image: string
   price: number
+  quantidade: number
 }
 export default function PaymentCoffe({
   id,
   title,
   image,
   price,
+  quantidade,
 }: HoverPaymentCoffeeProps) {
-  const [coffees, setCoffees] = useState(1)
-  function handleAddCoffee() {
-    setCoffees(coffees + 1)
+  const { handleAddCoffee, handleRemoveCoffee } = useLoja()
+  function handleAddCoffeePrimary() {
+    handleAddCoffee(id)
   }
-  function handleRemoveCoffee() {
-    setCoffees(coffees - 1)
-    if (coffees === 1) {
-      setCoffees(1)
-    }
+  function handleRemoveCoffeePrimary() {
+    handleRemoveCoffee(id)
   }
   return (
     <div className={styles.container}>
@@ -43,9 +42,9 @@ export default function PaymentCoffe({
           </div>
           <div className={styles.button}>
             <div className={styles.addCoffee}>
-              <button onClick={handleRemoveCoffee}>-</button>
-              <span>{coffees}</span>
-              <button onClick={handleAddCoffee}>+</button>
+              <button onClick={handleRemoveCoffeePrimary}>-</button>
+              <span>{quantidade}</span>
+              <button onClick={handleAddCoffeePrimary}>+</button>
             </div>
             <div className={styles.removeCoffee}>
               <div className={styles.image}>

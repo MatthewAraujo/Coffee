@@ -13,15 +13,22 @@ export default function Request() {
     <div className={styles.container}>
       <h2>Cafes Selecionado</h2>
       <div className={styles.content}>
-        {carrinho.map((item) => (
-          <PaymentCoffe
-            key={item.id}
-            id={item.id}
-            image={coffee[item.id - 1].image}
-            title={coffee[item.id - 1].title}
-            price={coffee[item.id - 1].price}
-          />
-        ))}
+        {carrinho.map((item) => {
+          const cafe = coffee.find((cafe) => cafe.id === item.id)
+          if (cafe) {
+            return (
+              <PaymentCoffe
+                key={item.id}
+                id={item.id}
+                title={cafe.title}
+                image={cafe.image}
+                price={cafe.price}
+                quantidade={item.quantidade}
+              />
+            )
+          }
+          return ''
+        })}
         <div className={styles.payment}>
           <div className={styles.totalItens}>
             <p>Total de itens</p>
